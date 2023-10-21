@@ -9,14 +9,24 @@
 ## 部署到服务器时，两个注意事项
 
 1. clickhouse的dns_dictionary.xml需放到clickhouse serve的配置目录下，目录路径在config.xml的
-<dictionaries_config>*_dictionary.xml</dictionaries_config>配置块中查看。
+
+```xml
+<dictionaries_config>*_dictionary.xml</dictionaries_config>
+```
+
+配置块中查看。
 2. dictionaries下的csv文件需部署到相应录下，目录位置可在dns_dictionary.xml的
-<path>/opt/dictionaries/dns_response.tsv</path>配置块中查看。
+
+```xml
+<path>/opt/dictionaries/dns_response.tsv</path>
+```
+
+配置块中查看。
 3. 提前将tables.sql导入到clickhouse。
 
 ## nginx配置
 
-```
+```nginx
 user  nginx;
 worker_processes  auto;
 error_log  /var/log/nginx/error.log notice;
