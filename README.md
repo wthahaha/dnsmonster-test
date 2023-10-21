@@ -1,3 +1,10 @@
+
+## 启动
+
+```shell
+docker compose up
+```
+
 ## 执行dnsmonster，将dns数据插入到clickhouse
 
 ```shell
@@ -6,23 +13,25 @@
 
 此处clickhouseaddress地址是由nginx代理的clickhouse地址，clickhouse实际地址是127.0.0.1:9000
 
-## 部署到服务器时，两个注意事项
+## 另外，部署到服务器时，3个注意事项
 
-1. clickhouse的dns_dictionary.xml需放到clickhouse serve的配置目录下，目录路径在config.xml的
+### 1. clickhouse的dns_dictionary.xml需放到clickhouse serve的配置目录下，目录路径在config.xml的
 
 ```xml
 <dictionaries_config>*_dictionary.xml</dictionaries_config>
 ```
 
 配置块中查看。
-2. dictionaries下的csv文件需部署到相应录下，目录位置可在dns_dictionary.xml的
+
+### 2. dictionaries下的csv文件需部署到相应录下，目录位置可在dns_dictionary.xml的
 
 ```xml
 <path>/opt/dictionaries/dns_response.tsv</path>
 ```
 
 配置块中查看。
-3. 提前将tables.sql导入到clickhouse。
+
+### 3. 提前将tables.sql导入到clickhouse
 
 ## nginx配置
 
