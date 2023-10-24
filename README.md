@@ -8,7 +8,7 @@ docker compose up
 ## 执行dnsmonster，将dns数据插入到clickhouse
 
 ```shell
-./cmddnsmonster --devName eth0 --packethandlercount=8 --useafpacket --clickhouseaddress=127.0.0.1:8080  --clickhousedatabase=default --clickhouseoutputtype=1
+./cmddnsmonster --devName eth0 --packethandlercount=8 --useafpacket --clickhouseaddress=127.0.0.1:8080  --clickhousedatabase=default --clickhouseoutputtype=1 --clickhousebatchsize=1
 ```
 
 此处clickhouseaddress地址是由nginx代理的clickhouse地址，clickhouse实际地址是127.0.0.1:9000
